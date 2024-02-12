@@ -1,0 +1,169 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0x10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode, CODE, READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT           Reset_Handler
+   10 00000000         Reset_Handler
+   11 00000000 4814            LDR              R0,=SRC
+   12 00000002 4D15            LDR              R5,=DST
+   13 00000004 F04F 010A       MOV              R1,#10
+   14 00000008 4A14            LDR              R2,=CHK
+   15 0000000A 6813            LDR              R3,[R2]
+   16 0000000C F850 4B04 
+                       BACK    LDR              R4,[R0],#4
+   17 00000010 429C            CMP              R4,R3
+   18 00000012 D005            BEQ              EXIT
+   19 00000014 3901            SUBS             R1,#1
+   20 00000016 D1F9            BNE              BACK
+   21 00000018 F04F 0663       MOV              R6,#99
+   22 0000001C 602E            STR              R6,[R5]
+   23 0000001E E002            B                STOP
+   24 00000020 F04F 060B 
+                       EXIT    MOV              R6,#11
+   25 00000024 602E            STR              R6,[R5]
+   26 00000026 E7FE    STOP    B                STOP
+   27 00000028 0000ABCD 
+              0000A1B2 
+              0000D1C2 
+              0000D3C2 
+              0000D1C4 
+              0000D123 
+              0000F324 
+              000054F3 
+              0000543E 
+              00001223 SRC     DCD              0xABCD,0xA1B2, 0xD1C2 ,0xD3C2  
+,0xD1C4,0xD123,0xF324,0x54F3,0x543E,0x1223
+   28 00000050 0000FFFF 
+                       CHK     DCD              0xFFFF
+   29 00000054 00000000 
+              00000000 
+              00000000         AREA             mydata, DATA, READWRITE
+   30 00000000 00000000 
+                       DST     DCD              0
+   31 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=linsearc
+h.d -olinsearch.o -I"D:\Keil Software\ARM\RV31\INC" -I"D:\Keil Software\ARM\CMS
+IS\Include" -I"D:\Keil Software\ARM\Inc\NXP\LPC17xx" --predefine="__EVAL SETA 1
+" --list=linsearch.lst linsearch.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file linsearch.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file linsearch.s
+   Uses
+      At line 2 in file linsearch.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+BACK 0000000C
+
+Symbol: BACK
+   Definitions
+      At line 16 in file linsearch.s
+   Uses
+      At line 20 in file linsearch.s
+Comment: BACK used once
+CHK 00000050
+
+Symbol: CHK
+   Definitions
+      At line 28 in file linsearch.s
+   Uses
+      At line 14 in file linsearch.s
+Comment: CHK used once
+EXIT 00000020
+
+Symbol: EXIT
+   Definitions
+      At line 24 in file linsearch.s
+   Uses
+      At line 18 in file linsearch.s
+Comment: EXIT used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file linsearch.s
+   Uses
+      At line 5 in file linsearch.s
+      At line 9 in file linsearch.s
+
+SRC 00000028
+
+Symbol: SRC
+   Definitions
+      At line 27 in file linsearch.s
+   Uses
+      At line 11 in file linsearch.s
+Comment: SRC used once
+STOP 00000026
+
+Symbol: STOP
+   Definitions
+      At line 26 in file linsearch.s
+   Uses
+      At line 23 in file linsearch.s
+      At line 26 in file linsearch.s
+
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file linsearch.s
+   Uses
+      None
+Comment: mycode unused
+7 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DST 00000000
+
+Symbol: DST
+   Definitions
+      At line 30 in file linsearch.s
+   Uses
+      At line 12 in file linsearch.s
+Comment: DST used once
+mydata 00000000
+
+Symbol: mydata
+   Definitions
+      At line 29 in file linsearch.s
+   Uses
+      None
+Comment: mydata unused
+2 symbols
+344 symbols in table

@@ -1,0 +1,1 @@
+selsort.o: selsort.s

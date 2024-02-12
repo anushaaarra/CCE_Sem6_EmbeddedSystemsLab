@@ -1,0 +1,140 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0x10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode, CODE, READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT           Reset_Handler
+   10 00000000         Reset_Handler
+   11 00000000 F8DF D030       LDR              R13,=0x10001000
+   12 00000004 F04F 0105       MOV              R1,#5
+   13 00000008 F04F 0201       MOV              R2,#1
+   14 0000000C F000 F803       BL               REC
+   15 00000010 4809            LDR              R0,=DST
+   16 00000012 6002            STR              R2,[R0]
+   17 00000014 E7FE    STOP    B                STOP
+   18 00000016         REC
+   19 00000016 B500            PUSH             {R14}
+   20 00000018 B402            PUSH             {R1}
+   21 0000001A F1A1 0101       SUB              R1,#1
+   22 0000001E 2901            CMP              R1,#1
+   23 00000020 D001            BEQ              DOWN
+   24 00000022 F7FF FFF8       BL               REC
+   25 00000026         DOWN
+   26 00000026 BC02            POP              {R1}
+   27 00000028 F85D EB04       POP              {R14}
+   28 0000002C FB02 F201       MUL              R2,R1
+   29 00000030 4770            BX               LR
+   30 00000032 00 00 10001000 
+              00000000         AREA             mydata, DATA, READWRITE
+   31 00000000 00000000 
+                       DST     DCD              0
+   32 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=factoria
+l.d -ofactorial.o -I"D:\Keil Software\ARM\RV31\INC" -I"D:\Keil Software\ARM\CMS
+IS\Include" -I"D:\Keil Software\ARM\Inc\NXP\LPC17xx" --predefine="__EVAL SETA 1
+" --list=factorial.lst factorial.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file factorial.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file factorial.s
+   Uses
+      At line 2 in file factorial.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DOWN 00000026
+
+Symbol: DOWN
+   Definitions
+      At line 25 in file factorial.s
+   Uses
+      At line 23 in file factorial.s
+Comment: DOWN used once
+REC 00000016
+
+Symbol: REC
+   Definitions
+      At line 18 in file factorial.s
+   Uses
+      At line 14 in file factorial.s
+      At line 24 in file factorial.s
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file factorial.s
+   Uses
+      At line 5 in file factorial.s
+      At line 9 in file factorial.s
+
+STOP 00000014
+
+Symbol: STOP
+   Definitions
+      At line 17 in file factorial.s
+   Uses
+      At line 17 in file factorial.s
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file factorial.s
+   Uses
+      None
+Comment: mycode unused
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DST 00000000
+
+Symbol: DST
+   Definitions
+      At line 31 in file factorial.s
+   Uses
+      At line 15 in file factorial.s
+Comment: DST used once
+mydata 00000000
+
+Symbol: mydata
+   Definitions
+      At line 30 in file factorial.s
+   Uses
+      None
+Comment: mydata unused
+2 symbols
+342 symbols in table
