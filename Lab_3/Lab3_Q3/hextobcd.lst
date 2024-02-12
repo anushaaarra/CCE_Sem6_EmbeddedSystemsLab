@@ -1,0 +1,150 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 10010000        DCD              0x10010000
+    6 00000004 00000000        DCD              Reset_Handler
+    7 00000008         
+    8 00000008                 ALIGN
+    9 00000008                 AREA             CODE_SEG, CODE, READONLY
+   10 00000000                 ENTRY
+   11 00000000                 EXPORT           Reset_Handler
+   12 00000000         
+   13 00000000         Reset_Handler
+   14 00000000 4E09            LDR              R6,=HEX
+   15 00000002 4F0A            LDR              R7,=BCD
+   16 00000004 7830            LDRB             R0,[R6]
+   17 00000006 F04F 020A       MOV              R2,#0XA
+   18 0000000A F04F 0100       MOV              R1,#0
+   19 0000000E         LOOP
+   20 0000000E 1A80            SUBS             R0,R0,R2
+   21 00000010 D402            BMI              EXIT
+   22 00000012 F101 0101       ADD              R1,#1
+   23 00000016 E7FA            B                LOOP
+   24 00000018         EXIT
+   25 00000018 EA4F 1101       LSL              R1,4
+   26 0000001C 4410            ADD              R0,R2
+   27 0000001E 4401            ADD              R1,R0
+   28 00000020 6039            STR              R1,[R7]
+   29 00000022         STOP
+   30 00000022 E7FE            B                STOP
+   31 00000024 0000002A 
+                       HEX     DCD              0x2A
+   32 00000028 00000000 
+              00000000         AREA             data, DATA, READWRITE
+   33 00000000 00000000 
+                       BCD     DCD              0
+   34 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=hextobcd
+.d -ohextobcd.o -I"D:\Keil Software\ARM\RV31\INC" -I"D:\Keil Software\ARM\CMSIS
+\Include" -I"D:\Keil Software\ARM\Inc\NXP\LPC17xx" --predefine="__EVAL SETA 1" 
+--list=hextobcd.lst hextobcd.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file hextobcd.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file hextobcd.s
+   Uses
+      At line 2 in file hextobcd.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CODE_SEG 00000000
+
+Symbol: CODE_SEG
+   Definitions
+      At line 9 in file hextobcd.s
+   Uses
+      None
+Comment: CODE_SEG unused
+EXIT 00000018
+
+Symbol: EXIT
+   Definitions
+      At line 24 in file hextobcd.s
+   Uses
+      At line 21 in file hextobcd.s
+Comment: EXIT used once
+HEX 00000024
+
+Symbol: HEX
+   Definitions
+      At line 31 in file hextobcd.s
+   Uses
+      At line 14 in file hextobcd.s
+Comment: HEX used once
+LOOP 0000000E
+
+Symbol: LOOP
+   Definitions
+      At line 19 in file hextobcd.s
+   Uses
+      At line 23 in file hextobcd.s
+Comment: LOOP used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 13 in file hextobcd.s
+   Uses
+      At line 6 in file hextobcd.s
+      At line 11 in file hextobcd.s
+
+STOP 00000022
+
+Symbol: STOP
+   Definitions
+      At line 29 in file hextobcd.s
+   Uses
+      At line 30 in file hextobcd.s
+Comment: STOP used once
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+BCD 00000000
+
+Symbol: BCD
+   Definitions
+      At line 33 in file hextobcd.s
+   Uses
+      At line 15 in file hextobcd.s
+Comment: BCD used once
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 32 in file hextobcd.s
+   Uses
+      None
+Comment: data unused
+2 symbols
+343 symbols in table

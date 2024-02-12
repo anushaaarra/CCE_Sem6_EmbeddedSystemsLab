@@ -1,0 +1,1 @@
+bcdtohex.o: bcdtohex.s
