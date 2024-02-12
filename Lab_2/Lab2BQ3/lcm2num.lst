@@ -1,0 +1,151 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 01001000        DCD              0x1001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode, CODE, READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT           Reset_Handler
+   10 00000000         Reset_Handler
+   11 00000000 480B            LDR              R0,=N1
+   12 00000002 490C            LDR              R1,=N2
+   13 00000004 7802            LDRB             R2,[R0]
+   14 00000006 780B            LDRB             R3,[R1]
+   15 00000008 4E0B            LDR              R6,=lcm
+   16 0000000A F04F 0500       MOV              R5,#0
+   17 0000000E FB02 F703       MUL              R7,R2,R3
+   18 00000012 F04F 0401       LDR              R4,=1
+   19 00000016 EBA7 0704 
+                       up      SUB              R7,R4
+   20 0000001A F105 0501       ADD              R5,#1
+   21 0000001E 2F00            CMP              R7,#0
+   22 00000020 D1F9            BNE              up
+   23 00000022 6035            STR              R5,[R6]
+   24 00000024 E7FF            B                STOP
+   25 00000026         STOP
+   26 00000026 E7FE            B                STOP
+   27 00000028 00000004 
+                       N1      DCD              4
+   28 0000002C 00000003 
+                       N2      DCD              3
+   29 00000030 00000000 
+              00000000 
+              00000000         AREA             mydata, DATA, READWRITE
+   30 00000000 00000000 
+                       lcm     DCD              0
+   31 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=lcm2num.
+d -olcm2num.o -I"D:\Keil Software\ARM\RV31\INC" -I"D:\Keil Software\ARM\CMSIS\I
+nclude" -I"D:\Keil Software\ARM\Inc\NXP\LPC17xx" --predefine="__EVAL SETA 1" --
+list=lcm2num.lst lcm2num.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file lcm2num.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file lcm2num.s
+   Uses
+      At line 2 in file lcm2num.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+N1 00000028
+
+Symbol: N1
+   Definitions
+      At line 27 in file lcm2num.s
+   Uses
+      At line 11 in file lcm2num.s
+Comment: N1 used once
+N2 0000002C
+
+Symbol: N2
+   Definitions
+      At line 28 in file lcm2num.s
+   Uses
+      At line 12 in file lcm2num.s
+Comment: N2 used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file lcm2num.s
+   Uses
+      At line 5 in file lcm2num.s
+      At line 9 in file lcm2num.s
+
+STOP 00000026
+
+Symbol: STOP
+   Definitions
+      At line 25 in file lcm2num.s
+   Uses
+      At line 24 in file lcm2num.s
+      At line 26 in file lcm2num.s
+
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file lcm2num.s
+   Uses
+      None
+Comment: mycode unused
+up 00000016
+
+Symbol: up
+   Definitions
+      At line 19 in file lcm2num.s
+   Uses
+      At line 22 in file lcm2num.s
+Comment: up used once
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+lcm 00000000
+
+Symbol: lcm
+   Definitions
+      At line 30 in file lcm2num.s
+   Uses
+      At line 15 in file lcm2num.s
+Comment: lcm used once
+mydata 00000000
+
+Symbol: mydata
+   Definitions
+      At line 29 in file lcm2num.s
+   Uses
+      None
+Comment: mydata unused
+2 symbols
+343 symbols in table

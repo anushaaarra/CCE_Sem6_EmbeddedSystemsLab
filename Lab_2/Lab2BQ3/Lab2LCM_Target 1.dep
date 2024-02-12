@@ -1,0 +1,2 @@
+Dependencies for Project 'Lab2LCM', Target 'Target 1': (DO NOT MODIFY !)
+F (.\lcm2num.s)(0x65CA192D)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I "D:\Keil Software\ARM\RV31\INC" -I "D:\Keil Software\ARM\CMSIS\Include" -I "D:\Keil Software\ARM\Inc\NXP\LPC17xx" --list "lcm2num.lst" --xref -o "lcm2num.o" --depend "lcm2num.d")
