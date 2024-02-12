@@ -1,0 +1,2 @@
+Dependencies for Project 'Lab2Add128Loop', Target 'Target 1': (DO NOT MODIFY !)
+F (.\add128loop.s)(0x65C97C4C)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I "D:\Keil Software\ARM\RV31\INC" -I "D:\Keil Software\ARM\CMSIS\Include" -I "D:\Keil Software\ARM\Inc\NXP\LPC17xx" --list "add128loop.lst" --xref -o "add128loop.o" --depend "add128loop.d")

@@ -1,0 +1,2 @@
+Dependencies for Project 'Lab2Add32', Target 'Target 1': (DO NOT MODIFY !)
+F (.\add32.s)(0x65C97B36)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I "D:\Keil Software\ARM\RV31\INC" -I "D:\Keil Software\ARM\CMSIS\Include" -I "D:\Keil Software\ARM\Inc\NXP\LPC17xx" --list "add32.lst" --xref -o "add32.o" --depend "add32.d")

@@ -1,0 +1,2 @@
+Dependencies for Project 'Lab2Add128', Target 'Target 1': (DO NOT MODIFY !)
+F (.\add128.s)(0x65C97BB6)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I "D:\Keil Software\ARM\RV31\INC" -I "D:\Keil Software\ARM\CMSIS\Include" -I "D:\Keil Software\ARM\Inc\NXP\LPC17xx" --list "add128.lst" --xref -o "add128.o" --depend "add128.d")

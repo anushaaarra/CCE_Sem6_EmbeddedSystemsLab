@@ -1,0 +1,1 @@
+sumNmla.o: sumNmla.s

@@ -1,0 +1,160 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0x10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode, CODE, READONLY
+    8 00000000                 EXPORT           Reset_Handler
+    9 00000000                 ENTRY
+   10 00000000         Reset_Handler
+   11 00000000 4817            LDR              R0,= VALUE1
+   12 00000002 4918            LDR              R1,= VALUE2
+   13 00000004         
+   14 00000004 68C2            LDR              R2,[R0,#12]
+   15 00000006 68CB            LDR              R3,[R1,#12]
+   16 00000008 18D4            ADDS             R4,R2,R3
+   17 0000000A         
+   18 0000000A 6882            LDR              R2,[R0,#8]
+   19 0000000C 688B            LDR              R3,[R1,#8]
+   20 0000000E EB52 0503       ADCS             R5,R2,R3
+   21 00000012         
+   22 00000012 6842            LDR              R2,[R0,#4]
+   23 00000014 684B            LDR              R3,[R1,#4]
+   24 00000016 EB52 0603       ADCS             R6,R2,R3
+   25 0000001A         
+   26 0000001A 6802            LDR              R2,[R0]
+   27 0000001C 680B            LDR              R3,[R1]
+   28 0000001E EB52 0703       ADCS             R7,R2,R3
+   29 00000022 F158 0800       ADCS             R8,#0
+   30 00000026         
+   31 00000026 F8DF 9040       LDR              R9,=RESULT
+   32 0000002A F849 4B04       STR              R4,[R9],#4
+   33 0000002E F849 5B04       STR              R5,[R9],#4
+   34 00000032 F849 6B04       STR              R6,[R9],#4
+   35 00000036 F849 7B04       STR              R7,[R9],#4
+   36 0000003A F849 8B04       STR              R8,[R9],#4
+   37 0000003E         
+   38 0000003E         STOP
+   39 0000003E E7FE            B                STOP
+   40 00000040 12345678 
+              ABCDEF12 
+              98765432 
+              ABCD1234 VALUE1  DCD              0X12345678, 0XABCDEF12, 0X98765
+432, 0XABCD1234
+   41 00000050 EF12ABCD 
+              CDEF1827 
+              12AB34CD 
+              EF12AB45 VALUE2  DCD              0XEF12ABCD, 0XCDEF1827, 0X12AB3
+4CD, 0XEF12AB45
+   42 00000060 00000000 
+              00000000 
+              00000000         AREA             mydata, DATA, READWRITE
+   43 00000000 00000000 
+              00000000 RESULT  DCD              0,0
+   44 00000008                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=add128.d
+ -oadd128.o -I"D:\Keil Software\ARM\RV31\INC" -I"D:\Keil Software\ARM\CMSIS\Inc
+lude" -I"D:\Keil Software\ARM\Inc\NXP\LPC17xx" --predefine="__EVAL SETA 1" --li
+st=add128.lst add128.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file add128.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file add128.s
+   Uses
+      At line 2 in file add128.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file add128.s
+   Uses
+      At line 5 in file add128.s
+      At line 8 in file add128.s
+
+STOP 0000003E
+
+Symbol: STOP
+   Definitions
+      At line 38 in file add128.s
+   Uses
+      At line 39 in file add128.s
+Comment: STOP used once
+VALUE1 00000040
+
+Symbol: VALUE1
+   Definitions
+      At line 40 in file add128.s
+   Uses
+      At line 11 in file add128.s
+Comment: VALUE1 used once
+VALUE2 00000050
+
+Symbol: VALUE2
+   Definitions
+      At line 41 in file add128.s
+   Uses
+      At line 12 in file add128.s
+Comment: VALUE2 used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file add128.s
+   Uses
+      None
+Comment: mycode unused
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESULT 00000000
+
+Symbol: RESULT
+   Definitions
+      At line 43 in file add128.s
+   Uses
+      At line 31 in file add128.s
+Comment: RESULT used once
+mydata 00000000
+
+Symbol: mydata
+   Definitions
+      At line 42 in file add128.s
+   Uses
+      None
+Comment: mydata unused
+2 symbols
+342 symbols in table
