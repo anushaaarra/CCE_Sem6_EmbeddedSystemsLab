@@ -1,2 +1,0 @@
-Dependencies for Project 'Lab1Overlap', Target 'Target 1': (DO NOT MODIFY !)
-F (.\overlap.s)(0x65C97F98)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I "D:\Keil Software\ARM\RV31\INC" -I "D:\Keil Software\ARM\CMSIS\Include" -I "D:\Keil Software\ARM\Inc\NXP\LPC17xx" --list "overlap.lst" --xref -o "overlap.o" --depend "overlap.d")
